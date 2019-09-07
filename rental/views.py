@@ -4,9 +4,8 @@ from . import serializers
 from .permissions import IsOwner
 
 class FriendViewset(viewsets.ModelViewSet):
-    queryset = models.Friend.objects.all()
+    queryset = models.Friend.objects.with_overdue()
     serializer_class = serializers.FriendSerializer
-    permission_classes = [IsOwner]
 
 class BelongingViewset(viewsets.ModelViewSet):
     queryset = models.Belonging.objects.all()
@@ -15,4 +14,3 @@ class BelongingViewset(viewsets.ModelViewSet):
 class BorrowedViewset(viewsets.ModelViewSet):
     queryset = models.Borrowed.objects.all()
     serializer_class = serializers.BorrowedSerializer
-    
