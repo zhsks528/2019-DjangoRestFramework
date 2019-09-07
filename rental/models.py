@@ -47,3 +47,4 @@ class Borrowed(models.Model):
     to_who = models.ForeignKey(Friend, on_delete=models.CASCADE)
     when = models.DateTimeField(auto_now_add=True)
     returned = models.DateTimeField(null=True, blank=True)
+    

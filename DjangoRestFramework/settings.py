@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rental', # my app
     'rest_framework', # djangorestframework
     'djoser',
-    'rest_framework.authtoken',
+    'rest_framework.authtoken', # auth token
+    'django_filters' # filters
 ]
 
 MIDDLEWARE = [
@@ -62,15 +63,20 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ],
+    
     # 로그인한 사용자만 액세스할 수 있도록 API 보호
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    
     # 페이지네이션
     # 1. LimitOffsetPagination : Format => url/?limit=1&offset=1
     # 2. PageNumberPagination : Format => url/?page={number}
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
+    
+    # 필터
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
 
 TEMPLATES = [

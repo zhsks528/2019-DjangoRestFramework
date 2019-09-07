@@ -1,6 +1,7 @@
 from rest_framework import viewsets, permissions
 from . import models
 from . import serializers
+from . import filters
 from .permissions import IsOwner
 
 class FriendViewset(viewsets.ModelViewSet):
@@ -14,3 +15,5 @@ class BelongingViewset(viewsets.ModelViewSet):
 class BorrowedViewset(viewsets.ModelViewSet):
     queryset = models.Borrowed.objects.all()
     serializer_class = serializers.BorrowedSerializer
+    permission_classes = [IsOwner]
+    filterset_class = filters.BorrowedFilterSet
