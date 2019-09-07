@@ -66,6 +66,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    # 페이지네이션
+    # 1. LimitOffsetPagination : Format => url/?limit=1&offset=1
+    # 2. PageNumberPagination : Format => url/?page={number}
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
 }
 
 TEMPLATES = [
