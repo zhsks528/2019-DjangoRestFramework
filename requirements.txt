@@ -1,6 +1,6 @@
 Django==2.2.5
 django-templated-mail==1.1.1
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 djoser==2.0.3
 pendulum==2.0.5
 python-dateutil==2.8.0
